@@ -12,40 +12,40 @@ The task of creating a simple API using Golang, with the feature that users cand
 
 ## Install module/package
 
-```
+```go
 go get -u github.com/asaskevich/govalidator
 go get -u github.com/gin-gonic/gin
 go get -u github.com/go-sql-driver/mysql
-go get -u github.com/golang-jwt/jwt/v5 v5.0.0
-go get -u github.com/jinzhu/gorm v1.9.16
-go get -u github.com/joho/godotenv v1.5.1
-go get -u golang.org/x/crypto v0.13.0
-go get -u gorm.io/gorm v1.25.4
+go get -u github.com/golang-jwt/jwt/v5 
+go get -u github.com/jinzhu/gorm 
+go get -u github.com/joho/godotenv 
+go get -u golang.org/x/crypto 
+go get -u gorm.io/gorm 
 ```
 
 ## Structure 📋
 
-```bash
-project-api
- ┣ controllers
+```php
+project-api 
+ ┣ controllers  // Folder of all method 
  ┃ ┣ photoController.go
  ┃ ┗ userController.go
  ┣ database
- ┃ ┣ configEnv.go
- ┃ ┗ connectDB.go
+ ┃ ┣ configEnv.go // Load env variable
+ ┃ ┗ connectDB.go // Connect database & migrate
  ┣ middleware
- ┃ ┗ requireAuth.go
- ┣ models
- ┃ ┣ photo.go
+ ┃ ┗ requireAuth.go // Validate user & claims token
+ ┣ models  // All models
+ ┃ ┣ photo.go 
  ┃ ┗ user.go
  ┣ router
- ┃ ┗ route.go
- ┣ .env
- ┣ .env.example
- ┣ go.mod
+ ┃ ┗ route.go // Call all method from folder controllers & set the router
+ ┣ .env // File to save .env variable
+ ┣ .env.example // Example of .env
+ ┣ go.mod // All of module
  ┣ go.sum
- ┣ main.go
- ┣ project-api.exe
+ ┣ main.go // Main project, run this app for run project
+ ┣ project-api.exe // I'm using compiledaemon that's why this file was created
  ┣ project-api.exe~
  ┗ readme.md
 ```
@@ -80,11 +80,9 @@ To run this project, you will need to add the following environment variables to
 ## API Reference
 
 #### Create User
-
-```http
-  POST /users/register
 ```
-
+ POST /users/register 
+```
 ```json
 {
   "username": "myusername",
@@ -95,7 +93,7 @@ To run this project, you will need to add the following environment variables to
 
 #### Login
 
-```http
+```
   POST /users/login
 ```
 
@@ -108,7 +106,7 @@ To run this project, you will need to add the following environment variables to
 
 #### Validate user
 
-```http
+```
   GET /users/validate
 ```
 
@@ -120,7 +118,7 @@ To run this project, you will need to add the following environment variables to
 
 #### Update user
 
-```http
+```
   PUT /users/update/{id}
 ```
 
@@ -134,13 +132,13 @@ To run this project, you will need to add the following environment variables to
 
 #### Delete user
 
-```http
+```
   DELETE /users/delete/{id}
 ```
 
 #### Show All User
 
-```http
+```
   GET /users/showAll
 ```
 
@@ -193,7 +191,7 @@ To run this project, you will need to add the following environment variables to
 
 #### Post photos
 
-```http
+```
   POST /photo/post
 ```
 
@@ -207,7 +205,7 @@ To run this project, you will need to add the following environment variables to
 
 #### Update photos
 
-```http
+```
   POST /photo/update/{id}
 ```
 
@@ -221,13 +219,13 @@ To run this project, you will need to add the following environment variables to
 
 #### Delete photos
 
-```http
+```
   DELETE /photo/delete/{id}
 ```
 
 #### Show all photos
 
-```http
+```
   GET /photo/show
 ```
 
